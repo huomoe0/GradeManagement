@@ -6,5 +6,10 @@ namespace GradeManagement
         {
             InitializeComponent();
         }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

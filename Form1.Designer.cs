@@ -38,6 +38,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "学生成绩管理系统";
+            FormClosed += MainForm_FormClosed;
             ResumeLayout(false);
         }
 
