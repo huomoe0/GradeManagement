@@ -23,7 +23,7 @@ namespace GradeManagement
             string password = this.textBox2.Text.Trim();
             if (username.Equals("admin") || password.Equals("123"))
             {
-                MainForm mainForm = new MainForm();
+                MainForm mainForm = new MainForm("测试");
                 this.Hide();
                 mainForm.Show();
             }
