@@ -13,7 +13,7 @@ namespace GradeManagement
 
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+            Application.Run(new AddStudent());
         }
     }
 }
