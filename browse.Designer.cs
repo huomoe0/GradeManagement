@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             tvwDpart = new TreeView();
             panel2 = new Panel();
@@ -38,9 +39,13 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            全部展开ToolStripMenuItem = new ToolStripMenuItem();
+            全部折叠ToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudent).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -54,6 +59,7 @@
             // 
             // tvwDpart
             // 
+            tvwDpart.ContextMenuStrip = contextMenuStrip1;
             tvwDpart.Dock = DockStyle.Fill;
             tvwDpart.Location = new Point(0, 0);
             tvwDpart.Name = "tvwDpart";
@@ -116,6 +122,26 @@
             Column6.HeaderText = "籍贯";
             Column6.Name = "Column6";
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 全部展开ToolStripMenuItem, 全部折叠ToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(125, 48);
+            // 
+            // 全部展开ToolStripMenuItem
+            // 
+            全部展开ToolStripMenuItem.Name = "全部展开ToolStripMenuItem";
+            全部展开ToolStripMenuItem.Size = new Size(124, 22);
+            全部展开ToolStripMenuItem.Text = "全部展开";
+            全部展开ToolStripMenuItem.Click += 全部展开ToolStripMenuItem_Click;
+            // 
+            // 全部折叠ToolStripMenuItem
+            // 
+            全部折叠ToolStripMenuItem.Name = "全部折叠ToolStripMenuItem";
+            全部折叠ToolStripMenuItem.Size = new Size(124, 22);
+            全部折叠ToolStripMenuItem.Text = "全部折叠";
+            全部折叠ToolStripMenuItem.Click += 全部折叠ToolStripMenuItem_Click;
+            // 
             // BrowseStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -129,6 +155,7 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvStudent).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -144,5 +171,8 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem 全部展开ToolStripMenuItem;
+        private ToolStripMenuItem 全部折叠ToolStripMenuItem;
     }
 }

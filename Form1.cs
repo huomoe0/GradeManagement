@@ -36,5 +36,10 @@ namespace GradeManagement
             Application.Exit();
         }
 
+        private void SJBFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DBBackupForm backup = new();
+            backup.ShowDialog();
+        }
     }
 }

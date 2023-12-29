@@ -66,5 +66,15 @@ namespace GradeManagement
             };
             this.dgvStudent.DataSource = stu; // 数据绑定
         }
+
+        private void 全部展开ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvwDpart.ExpandAll();
+        }
+
+        private void 全部折叠ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tvwDpart.CollapseAll();
+        }
     }
 }

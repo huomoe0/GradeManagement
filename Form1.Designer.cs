@@ -217,6 +217,7 @@
             SJBFToolStripMenuItem.Name = "SJBFToolStripMenuItem";
             SJBFToolStripMenuItem.Size = new Size(180, 22);
             SJBFToolStripMenuItem.Text = "数据备份";
+            SJBFToolStripMenuItem.Click += SJBFToolStripMenuItem_Click;
             // 
             // SJHFToolStripMenuItem
             // 
