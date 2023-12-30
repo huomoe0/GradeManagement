@@ -21,13 +21,15 @@ namespace GradeManagement
 
         private void AddStudent_Load(object sender, EventArgs e)
         {
+            FillCollege(); // 添加学院
             this.txtStuID.Focus();
             this.rbtMale.Checked = true;
-            this.comNation.SelectedIndex = 0;
-            FillCollege(); // 添加学院
+            this.comPolitics.SelectedIndex = 0;
         }
         private void FillCollege()
         {
+            // 数据绑定前解除事件，防止出现异常数据
+            this.comDepart.SelectedValueChanged -= comDepart_SelectedValueChanged;
             string sql = "select id, name from tb_college";
             using (MySqlConnection conn = Utils.getConnection())
             {
@@ -38,13 +40,17 @@ namespace GradeManagement
                 comDepart.DisplayMember = "name";
                 comDepart.ValueMember = "id";
             }
+            //恢复事件，并主动触发事件更新
+            this.comDepart.SelectedValueChanged += comDepart_SelectedValueChanged;
+            comDepart_SelectedValueChanged(this.comDepart, new EventArgs());
         }
         private void comDepart_SelectedValueChanged(object sender, EventArgs e)
         {
             if (comDepart.SelectedIndex < 0 || this.comDepart.SelectedValue == null)
                 return;
 
-            string? id = this.comDepart.SelectedValue.ToString();
+            int id = (int)this.comDepart.SelectedValue;
+
             string sql = "select id, name from tb_class where depart = @id";
             using (MySqlConnection conn = Utils.getConnection())
             {
@@ -58,42 +64,28 @@ namespace GradeManagement
                 comClass.ValueMember = "id";
             }
         }
-        private string GetHobby()
-        {
-            string hobby = string.Empty;
-            if (this.checkBox1.Checked) hobby = hobby + this.checkBox1.Text.Trim() + "、";
-            if (this.checkBox2.Checked) hobby = hobby + this.checkBox2.Text.Trim() + "、";
-            if (this.checkBox3.Checked) hobby = hobby + this.checkBox3.Text.Trim() + "、";
-            if (this.checkBox4.Checked) hobby = hobby + this.checkBox4.Text.Trim() + "、";
-            if (this.checkBox5.Checked) hobby = hobby + this.checkBox5.Text.Trim() + "、";
-            if (hobby == string.Empty) return string.Empty;
-            return hobby.Substring(0, hobby.Length-1);
-        }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string stuid = this.txtStuID.Text;
             string name = this.txtName.Text;
-            string gender = this.rbtMale.Checked == true ? "男" : "女";
-            string nation = this.comNation.Text;
-            string age = Convert.ToString(this.numAge.Value);
-            string depart = this.comDepart.SelectedValue.ToString().Trim();
-            string inclass = this.comClass.SelectedValue.ToString().Trim();
+            string gender = this.rbtMale.Checked ? "M" : "F";
+            int politics = this.comPolitics.SelectedIndex;
+            int age = (int)this.numAge.Value;
+            int inclass = (int)this.comClass.SelectedValue;
             string location = this.txtLocation.Text;
-            string hobby = GetHobby();
 
-            string sql = "insert into tb_student (stuid, name, gender, politics, age, location, depart, class) " +
-                "values(@stuid, @name, @gender, @politics, @age, @location, @depart, @class)";
+            string sql = "insert into tb_student (stuid, name, gender, politics, age, location, class) " +
+                "values(@stuid, @name, @gender, @politics, @age, @location, @class)";
             using (MySqlConnection conn = Utils.getConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@stuid", stuid);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@gender", gender);
-                cmd.Parameters.AddWithValue("@politics", nation);
+                cmd.Parameters.AddWithValue("@politics", politics);
                 cmd.Parameters.AddWithValue("@age", age);
                 cmd.Parameters.AddWithValue("@location", location);
-                cmd.Parameters.AddWithValue("@depart", depart);
                 cmd.Parameters.AddWithValue("@class", inclass);
                 int rows = 0;
                 try
@@ -110,6 +102,11 @@ namespace GradeManagement
                     MessageBox.Show("添加学生失败！", "信息提示", MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

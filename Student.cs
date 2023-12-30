@@ -6,29 +6,23 @@ using System.Threading.Tasks;
 
 namespace GradeManagement
 {
-    internal class Student
+    internal class Student(string stuid, string name, string gender, string politics, int age, string nation, int inclass)
     {
-        private string stuid;
-        private string name;
-        private string gender;
-        private string politics;
-        private string age;
-        private string nation;
+        private int? id;
+        private string stuid = stuid;
+        private string name = name;
+        private string gender = gender;
+        private string politics = politics;
+        private int age = age;
+        private string location = nation;
+        private int inclass = inclass;
 
-        public Student(string stuid, string name, string gender, string politics, string age, string nation)
-        {
-            this.stuid = stuid;
-            this.name = name;
-            this.gender = gender;
-            this.politics = politics;
-            this.age = age;
-            this.nation = nation;
-        }
         public string Stuid { get {  return stuid; } }
         public string Name { get { return name; } }
         public string Gender { get {  return gender; } }
         public string Politics { get {  return politics; } }
-        public string Nation { get {  return nation; } }
-        public string Age { get { return age; } }
+        public string Location { get {  return location; } }
+        public int Age { get { return age; } }
+        public int Inclass { get {  return inclass; } }
     }
 }

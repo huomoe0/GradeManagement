@@ -59,12 +59,13 @@ namespace GradeManagement
 
         private void AddStudent()
         {
-            Student[] stu = new Student[]
-            {
-                new("20120101001", "张志强", "男", "党员", "18", "河南省许昌市"),
-                new("20120101002", "张晓丽", "女", "团员", "18", "河南省洛阳市")
-            };
-            this.dgvStudent.DataSource = stu; // 数据绑定
+            // TODO 从数据库读
+            //Student[] stu = new Student[]
+            //{
+            //    new("20120101001", "张志强", "男", "党员", "18", "河南省许昌市"),
+            //    new("20120101002", "张晓丽", "女", "团员", "18", "河南省洛阳市")
+            //};
+            //this.dgvStudent.DataSource = stu; // 数据绑定
         }
 
         private void 全部展开ToolStripMenuItem_Click(object sender, EventArgs e)
