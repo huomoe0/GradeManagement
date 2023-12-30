@@ -15,7 +15,6 @@ namespace GradeManagement
 {
     public partial class LoginForm : Form
     {
-        private string connectionUrl = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
         public LoginForm()
         {
             InitializeComponent();
@@ -25,6 +24,11 @@ namespace GradeManagement
         {
             string username = this.textBox1.Text.Trim();
             string password = this.textBox2.Text.Trim();
+            if (username == string.Empty || password == string.Empty)
+            {
+                MessageBox.Show("用户名或密码为空！", "登录提示");
+                return;
+            }
             if (CheckUser(username, password))
             {
                 MainForm mainForm = new MainForm(username);
@@ -33,7 +37,7 @@ namespace GradeManagement
             }
             else
             {
-                MessageBox.Show("用户名或密码错误，请重新输入！", "提示");
+                MessageBox.Show("用户名或密码错误，请重新输入！", "登录信息");
             }
         }
 
@@ -46,9 +50,8 @@ namespace GradeManagement
         {
             string SQL = "SELECT * FROM tb_user WHERE username = @Username AND password = @Password";
             // 建立连接
-            using (MySqlConnection conn = new(connectionUrl))
+            using (MySqlConnection conn = Utils.getConnection())
             {
-                conn.Open();
                 // 设置命令对象属性
                 MySqlCommand cmd = new(SQL, conn);
                 cmd.Parameters.AddWithValue("@Username", username);

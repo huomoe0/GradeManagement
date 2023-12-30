@@ -134,6 +134,7 @@
             // 
             // comNation
             // 
+            comNation.DropDownStyle = ComboBoxStyle.DropDownList;
             comNation.FormattingEnabled = true;
             comNation.Items.AddRange(new object[] { "中共党员", "共青团员", "学生", "其他" });
             comNation.Location = new Point(100, 91);
@@ -171,6 +172,7 @@
             // 
             // comDepart
             // 
+            comDepart.DropDownStyle = ComboBoxStyle.DropDownList;
             comDepart.FormattingEnabled = true;
             comDepart.Location = new Point(76, 160);
             comDepart.Name = "comDepart";
@@ -189,6 +191,7 @@
             // 
             // comClass
             // 
+            comClass.DropDownStyle = ComboBoxStyle.DropDownList;
             comClass.FormattingEnabled = true;
             comClass.Location = new Point(316, 163);
             comClass.Name = "comClass";
