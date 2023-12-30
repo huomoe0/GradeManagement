@@ -92,6 +92,7 @@
             Controls.Add(txtBackup);
             Controls.Add(label1);
             Name = "DBBackupForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "数据备份";
             ResumeLayout(false);
             PerformLayout();
