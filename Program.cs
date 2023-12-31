@@ -15,8 +15,9 @@ namespace GradeManagement
             //Application.Run(new LoginForm());
             //Application.Run(new MainForm("11"));
             //Application.Run(new AddStudent());
-            Application.Run(new EditStudent());
-
+            //Application.Run(new EditStudent());
+            //Application.Run(new BrowseStudent());
+            Application.Run(new BrowseStudent());
         }
     }
 }

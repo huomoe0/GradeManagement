@@ -267,6 +267,7 @@
             btnDelete.TabIndex = 41;
             btnDelete.Text = "删除";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // groupBox1
             // 

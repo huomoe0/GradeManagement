@@ -13,4 +13,11 @@ namespace GradeManagement
         学生,
         其他
     }
+
+    public static class Constant
+    {
+        public static readonly string SCHOOL_NAME = "明月大学";
+    }
+
+    
 }

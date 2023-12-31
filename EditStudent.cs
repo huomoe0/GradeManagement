@@ -136,5 +136,30 @@ namespace GradeManagement
                 }
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (this.txtStuID.Text == string.Empty) { return; }
+            string sql = "delete from tb_student where stuid = @stuid";
+            using (MySqlConnection conn = Utils.getConnection())
+            {
+                MySqlCommand cmd = new(sql, conn);
+                cmd.Parameters.AddWithValue("@stuid", this.txtStuID.Text.Trim());
+                DialogResult res = MessageBox.Show("您确定要删除吗？", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (res == DialogResult.OK)
+                {
+                    int rows = Convert.ToInt32(cmd.ExecuteNonQuery());
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("学生信息删除成功！", "信息删除");
+                        this.txtStuID.Text = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("学生信息删除失败！", "信息删除");
+                    }
+                }
+            }
+        }
     }
 }
