@@ -11,7 +11,7 @@ namespace GradeManagement
     public static class Utils
     {
         private static readonly string connectionUrl = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-        public static MySqlConnection getConnection()
+        public static MySqlConnection GetConnection()
         {
             MySqlConnection mySqlConnection = new MySqlConnection(connectionUrl);
             mySqlConnection.Open();

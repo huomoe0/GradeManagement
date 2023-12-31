@@ -28,7 +28,7 @@ namespace GradeManagement
         {
             string stuid = this.txtSearch.Text.Trim();
             string sql = "select name, gender, politics, age, location, class from tb_student where stuid = @stuid";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@stuid", stuid);
@@ -43,7 +43,7 @@ namespace GradeManagement
                     this.txtLocation.Text = reader.GetString(4);
                     // 设置学院和班级
                     string classid = reader.GetString(5);
-                    using (MySqlConnection conn1 = Utils.getConnection())
+                    using (MySqlConnection conn1 = Utils.GetConnection())
                     {
                         MySqlCommand cmd1 = new MySqlCommand("select depart from tb_class where id = @id", conn1);
                         cmd1.Parameters.AddWithValue("@id", classid);
@@ -70,7 +70,7 @@ namespace GradeManagement
             // 数据绑定前解除事件，防止出现异常数据
             this.comDepart.SelectedValueChanged -= comDepart_SelectedValueChanged;
             string sql = "select id, name from tb_college";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 DataSet ds = new DataSet();
                 MySqlDataAdapter mda = new(sql, conn);
@@ -92,7 +92,7 @@ namespace GradeManagement
             int id = (int)this.comDepart.SelectedValue;
 
             string sql = "select id, name from tb_class where depart = @id";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 DataSet ds = new DataSet();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -115,7 +115,7 @@ namespace GradeManagement
             if (this.txtStuID.Text == string.Empty) return;
 
             string sql = "update tb_student set name=@name, gender=@gender, politics=@politics, age=@age, location=@location, class=@class where stuid=@stuid";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@name", this.txtName.Text.Trim());
@@ -141,7 +141,7 @@ namespace GradeManagement
         {
             if (this.txtStuID.Text == string.Empty) { return; }
             string sql = "delete from tb_student where stuid = @stuid";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 MySqlCommand cmd = new(sql, conn);
                 cmd.Parameters.AddWithValue("@stuid", this.txtStuID.Text.Trim());

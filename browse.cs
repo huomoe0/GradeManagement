@@ -28,7 +28,7 @@ namespace GradeManagement
                 ",case politics when 0 then '中共党员' when 1 then '共青团员' when 2 then '学生' when 3 then '其他' end as politics," +
                 " age, location, tb_class.name as className" +
                 " from tb_student, tb_class where tb_student.class = tb_class.id and class = @class";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@class", classID);
@@ -55,7 +55,7 @@ namespace GradeManagement
             // 建立根节点
             TreeNode root = this.tvwDpart.Nodes.Add(Constant.SCHOOL_NAME);
             string sql = "select id, name from tb_college";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 MySqlDataAdapter mda = new(sql, conn);
                 DataSet ds = new DataSet();

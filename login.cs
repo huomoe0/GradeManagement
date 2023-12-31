@@ -50,7 +50,7 @@ namespace GradeManagement
         {
             string SQL = "SELECT * FROM tb_user WHERE username = @Username AND password = @Password";
             // 建立连接
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 // 设置命令对象属性
                 MySqlCommand cmd = new(SQL, conn);

@@ -31,7 +31,7 @@ namespace GradeManagement
             // 数据绑定前解除事件，防止出现异常数据
             this.comDepart.SelectedValueChanged -= comDepart_SelectedValueChanged;
             string sql = "select id, name from tb_college";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 DataSet ds = new DataSet();
                 MySqlDataAdapter mda = new(sql, conn);
@@ -52,7 +52,7 @@ namespace GradeManagement
             int id = (int)this.comDepart.SelectedValue;
 
             string sql = "select id, name from tb_class where depart = @id";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 DataSet ds = new DataSet();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -77,7 +77,7 @@ namespace GradeManagement
 
             string sql = "insert into tb_student (stuid, name, gender, politics, age, location, class) " +
                 "values(@stuid, @name, @gender, @politics, @age, @location, @class)";
-            using (MySqlConnection conn = Utils.getConnection())
+            using (MySqlConnection conn = Utils.GetConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@stuid", stuid);

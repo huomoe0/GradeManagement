@@ -101,6 +101,7 @@
             // 
             dgvStudent.AllowUserToAddRows = false;
             dgvStudent.AllowUserToDeleteRows = false;
+            dgvStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudent.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, ClassName });
             dgvStudent.Dock = DockStyle.Fill;
