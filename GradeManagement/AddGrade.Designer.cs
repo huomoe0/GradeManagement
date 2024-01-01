@@ -43,6 +43,7 @@
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -169,7 +170,7 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column3 });
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
@@ -191,9 +192,16 @@
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             // 
+            // Column4
+            // 
+            Column4.DataPropertyName = "term";
+            Column4.HeaderText = "学期";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            // 
             // Column3
             // 
-            Column3.DataPropertyName = "grade";
+            Column3.DataPropertyName = "score";
             Column3.HeaderText = "成绩";
             Column3.Name = "Column3";
             // 
@@ -220,7 +228,6 @@
 
         private Button btnSearch;
         private GroupBox groupBox1;
-        private Button button1;
         private ComboBox cboClass;
         private ComboBox cboCourse;
         private TextBox txtTerm;
@@ -234,6 +241,7 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column3;
     }
 }

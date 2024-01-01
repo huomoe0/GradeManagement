@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GradeBLL\GradeBLL.csproj" />
+    <ProjectReference Include="..\GradeBLL\BLL.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 

@@ -4,7 +4,7 @@ namespace GradeManagement
 {
     public partial class LoginForm : Form
     {
-        private GradeBLL.User userBLL = new();
+        private BLL.UserBLL userBLL = new();
         // 用户登录成功事件
         public event Action<User> UserLoggedIn; 
         private void OnUserLoggedIn(User user)

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GradeDAL\GradeDAL.csproj" />
+    <ProjectReference Include="..\GradeDAL\DAL.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 

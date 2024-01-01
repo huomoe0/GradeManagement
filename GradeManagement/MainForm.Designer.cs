@@ -92,21 +92,23 @@
             // TJXSToolStripMenuItem
             // 
             TJXSToolStripMenuItem.Name = "TJXSToolStripMenuItem";
-            TJXSToolStripMenuItem.Size = new Size(124, 22);
+            TJXSToolStripMenuItem.Size = new Size(180, 22);
             TJXSToolStripMenuItem.Text = "添加学生";
             TJXSToolStripMenuItem.Click += TJXSToolStripMenuItem_Click;
             // 
             // BJXSToolStripMenuItem
             // 
             BJXSToolStripMenuItem.Name = "BJXSToolStripMenuItem";
-            BJXSToolStripMenuItem.Size = new Size(124, 22);
+            BJXSToolStripMenuItem.Size = new Size(180, 22);
             BJXSToolStripMenuItem.Text = "编辑学生";
+            BJXSToolStripMenuItem.Click += BJXSToolStripMenuItem_Click;
             // 
             // CXToolStripMenuItem
             // 
             CXToolStripMenuItem.Name = "CXToolStripMenuItem";
-            CXToolStripMenuItem.Size = new Size(124, 22);
+            CXToolStripMenuItem.Size = new Size(180, 22);
             CXToolStripMenuItem.Text = "查询学生";
+            CXToolStripMenuItem.Click += CXToolStripMenuItem_Click;
             // 
             // DToolStripMenuItem
             // 
@@ -179,19 +181,20 @@
             // TJCJToolStripMenuItem
             // 
             TJCJToolStripMenuItem.Name = "TJCJToolStripMenuItem";
-            TJCJToolStripMenuItem.Size = new Size(124, 22);
+            TJCJToolStripMenuItem.Size = new Size(180, 22);
             TJCJToolStripMenuItem.Text = "添加成绩";
+            TJCJToolStripMenuItem.Click += TJCJToolStripMenuItem_Click;
             // 
             // CJLBToolStripMenuItem
             // 
             CJLBToolStripMenuItem.Name = "CJLBToolStripMenuItem";
-            CJLBToolStripMenuItem.Size = new Size(124, 22);
+            CJLBToolStripMenuItem.Size = new Size(180, 22);
             CJLBToolStripMenuItem.Text = "成绩列表";
             // 
             // CJCXToolStripMenuItem
             // 
             CJCXToolStripMenuItem.Name = "CJCXToolStripMenuItem";
-            CJCXToolStripMenuItem.Size = new Size(124, 22);
+            CJCXToolStripMenuItem.Size = new Size(180, 22);
             CJCXToolStripMenuItem.Text = "成绩查询";
             // 
             // RToolStripMenuItem
@@ -204,36 +207,36 @@
             // XGMMToolStripMenuItem
             // 
             XGMMToolStripMenuItem.Name = "XGMMToolStripMenuItem";
-            XGMMToolStripMenuItem.Size = new Size(180, 22);
+            XGMMToolStripMenuItem.Size = new Size(140, 22);
             XGMMToolStripMenuItem.Text = "修改密码";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(177, 6);
+            toolStripSeparator2.Size = new Size(137, 6);
             // 
             // SJBFToolStripMenuItem
             // 
             SJBFToolStripMenuItem.Name = "SJBFToolStripMenuItem";
-            SJBFToolStripMenuItem.Size = new Size(180, 22);
+            SJBFToolStripMenuItem.Size = new Size(140, 22);
             SJBFToolStripMenuItem.Text = "数据备份";
             SJBFToolStripMenuItem.Click += SJBFToolStripMenuItem_Click;
             // 
             // SJHFToolStripMenuItem
             // 
             SJHFToolStripMenuItem.Name = "SJHFToolStripMenuItem";
-            SJHFToolStripMenuItem.Size = new Size(180, 22);
+            SJHFToolStripMenuItem.Size = new Size(140, 22);
             SJHFToolStripMenuItem.Text = "数据恢复";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(177, 6);
+            toolStripSeparator3.Size = new Size(137, 6);
             // 
             // TCXTXToolStripMenuItem
             // 
             TCXTXToolStripMenuItem.Name = "TCXTXToolStripMenuItem";
-            TCXTXToolStripMenuItem.Size = new Size(180, 22);
+            TCXTXToolStripMenuItem.Size = new Size(140, 22);
             TCXTXToolStripMenuItem.Text = "退出系统(&X)";
             TCXTXToolStripMenuItem.Click += TCXTXToolStripMenuItem_Click;
             // 
@@ -279,6 +282,7 @@
             toolStripButton4.Size = new Size(23, 22);
             toolStripButton4.Text = "toolStripButton4";
             toolStripButton4.ToolTipText = "编辑学生";
+            toolStripButton4.Click += BJXSToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 

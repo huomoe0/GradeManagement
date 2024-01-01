@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradeDAL", "GradeDAL\GradeDAL.csproj", "{B65B672C-D6D8-4BC0-8A6F-75A5A4B4DA76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "GradeDAL\DAL.csproj", "{B65B672C-D6D8-4BC0-8A6F-75A5A4B4DA76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradeBLL", "GradeBLL\GradeBLL.csproj", "{3FB895CB-1B09-40BA-8011-6A11FE3D00AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "GradeBLL\BLL.csproj", "{3FB895CB-1B09-40BA-8011-6A11FE3D00AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{22386B63-2F74-4AE9-B001-C90E7B3A374D}"
 EndProject

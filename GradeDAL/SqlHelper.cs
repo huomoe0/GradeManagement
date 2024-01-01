@@ -1,13 +1,15 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Reflection;
 
-namespace GradeDAL
+namespace DAL
 {
     public class SqlHelper
     {
         private static readonly string connectionUrl = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-        private static MySqlConnection GetConnection()
+        public static MySqlConnection GetConnection()
         {
             MySqlConnection mySqlConnection = new MySqlConnection(connectionUrl);
             mySqlConnection.Open();
@@ -92,8 +94,40 @@ namespace GradeDAL
             using MySqlConnection conn = GetConnection();
             using MySqlCommand cmd = new(commandText, conn);
             ConfigureCommand(cmd, commandType, parameters);
-            int count = cmd.ExecuteNonQuery();
-            return count;
+            
+            try
+            {
+                int count = cmd.ExecuteNonQuery();
+                return count;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
+        /// <summary>
+        /// 将DataTable转为List
+        /// </summary>
+        public static List<T> ConvertDataTableToList<T>(DataTable dataTable) where T : new()
+        {
+            List<T> list = new List<T>();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                T obj = new T();
+                foreach (PropertyInfo propertyInfo in obj.GetType().GetProperties())
+                {
+                    if (dataTable.Columns.Contains(propertyInfo.Name))
+                    {
+                        if (row[propertyInfo.Name] != DBNull.Value)
+                        {
+                            propertyInfo.SetValue(obj, row[propertyInfo.Name], null);
+                        }
+                    }
+                }
+                list.Add(obj);
+            }
+            return list;
+        }
+
     }
 }

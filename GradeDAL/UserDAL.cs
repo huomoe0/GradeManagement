@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GradeDAL
+namespace DAL
 {
-    public class User
+    public class UserDAL
     {
         public bool IsUser(Model.User user)
         {

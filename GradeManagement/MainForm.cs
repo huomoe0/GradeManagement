@@ -46,5 +46,23 @@ namespace GradeManagement
             DBBackupForm backup = new();
             backup.ShowDialog();
         }
+
+        private void BJXSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditStudent editStudent = new EditStudent();
+            editStudent.Show();
+        }
+
+        private void CXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BrowseStudent browseStudent = new BrowseStudent();
+            browseStudent.Show();
+        }
+
+        private void TJCJToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddGrade addGrade = new AddGrade();
+            addGrade.Show();
+        }
     }
 }

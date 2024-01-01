@@ -16,7 +16,6 @@ namespace GradeManagement
             MainForm mainForm = new MainForm();
             loginForm.UserLoggedIn += mainForm.HandleUserLoggedIn;
 
-            loginForm.ShowDialog();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
                 loginForm.Close();

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GradeBLL
+namespace BLL
 {
-    public class User
+    public class UserBLL
     {
         public bool IsUser(Model.User user)
         {
-            GradeDAL.User user1 = new GradeDAL.User();
+            DAL.UserDAL user1 = new DAL.UserDAL();
             return user1.IsUser(user);
         }
     }
