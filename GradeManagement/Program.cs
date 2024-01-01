@@ -12,12 +12,17 @@ namespace GradeManagement
             // see https://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            //Application.Run(new LoginForm());
-            //Application.Run(new MainForm("11"));
-            //Application.Run(new AddStudent());
-            //Application.Run(new EditStudent());
-            //Application.Run(new BrowseStudent());
-            Application.Run(new AddGrade());
+            LoginForm loginForm = new LoginForm();
+            MainForm mainForm = new MainForm();
+            loginForm.UserLoggedIn += mainForm.HandleUserLoggedIn;
+
+            loginForm.ShowDialog();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                loginForm.Close();
+                Application.Run(mainForm);
+            }
+            Application.Exit();
         }
     }
 }

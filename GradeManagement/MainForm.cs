@@ -1,12 +1,17 @@
+using Model;
+
 namespace GradeManagement
 {
     public partial class MainForm : Form
     {
-        private string name;
-        public MainForm(string name)
+        private User currentUser;
+        public void HandleUserLoggedIn(User user)
+        {
+            this.currentUser = user;
+        }
+        public MainForm()
         {
             InitializeComponent();
-            this.name = name;
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -21,7 +26,7 @@ namespace GradeManagement
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.tsslInfo.Text = "ÄãºÃ: " + name;
+            this.tsslInfo.Text = "ÄãºÃ: " + currentUser.Nickname;
             this.tmrStudentGrade.Enabled = true;
         }
 

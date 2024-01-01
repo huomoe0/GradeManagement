@@ -9,11 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.2.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GradeBLL\GradeBLL.csproj" />
     <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>

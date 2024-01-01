@@ -84,7 +84,7 @@ namespace GradeManagement
             comDepart_SelectedValueChanged(this.comDepart, new EventArgs());
         }
 
-        private void comDepart_SelectedValueChanged(object sender, EventArgs e)
+        private void comDepart_SelectedValueChanged(object? sender, EventArgs e)
         {
             if (comDepart.SelectedIndex < 0 || this.comDepart.SelectedValue == null)
                 return;

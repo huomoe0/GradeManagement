@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.Configuration;
+﻿using Model;
 
 namespace GradeManagement
 {
     public partial class LoginForm : Form
     {
+        private GradeBLL.User userBLL = new();
+        // 用户登录成功事件
+        public event Action<User> UserLoggedIn; 
+        private void OnUserLoggedIn(User user)
+        {
+            UserLoggedIn?.Invoke(user);
+        }
         public LoginForm()
         {
             InitializeComponent();
@@ -27,41 +23,26 @@ namespace GradeManagement
             if (username == string.Empty || password == string.Empty)
             {
                 MessageBox.Show("用户名或密码为空！", "登录提示");
-                return;
-            }
-            if (CheckUser(username, password))
-            {
-                MainForm mainForm = new MainForm(username);
-                this.Hide();
-                mainForm.Show();
+                this.textBox1.Focus();
             }
             else
             {
-                MessageBox.Show("用户名或密码错误，请重新输入！", "登录信息");
+                User user = new(username, password);
+                if (userBLL.IsUser(user))
+                {
+                    this.DialogResult = DialogResult.OK;
+                    OnUserLoggedIn(user);
+                }
+                else
+                {
+                    MessageBox.Show("用户名或密码错误，请重新输入！", "登录信息");
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private bool CheckUser(string username, string password)
-        {
-            string SQL = "SELECT * FROM tb_user WHERE username = @Username AND password = @Password";
-            // 建立连接
-            using (MySqlConnection conn = Utils.GetConnection())
-            {
-                // 设置命令对象属性
-                MySqlCommand cmd = new(SQL, conn);
-                cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password);
-                // 执行
-                object result = cmd.ExecuteScalar();
-                if (result != null)
-                    return true;
-                return false;
-            }
         }
     }
 }
