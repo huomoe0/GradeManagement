@@ -94,16 +94,8 @@ namespace DAL
             using MySqlConnection conn = GetConnection();
             using MySqlCommand cmd = new(commandText, conn);
             ConfigureCommand(cmd, commandType, parameters);
-            
-            try
-            {
-                int count = cmd.ExecuteNonQuery();
-                return count;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
+            int count = cmd.ExecuteNonQuery();
+            return count;
         }
         /// <summary>
         /// 将DataTable转为List
