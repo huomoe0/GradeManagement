@@ -14,5 +14,9 @@ namespace BLL
         {
             return courseDAL.SelectAll();
         }
+        public bool AddStudentCourse(Model.Course course)
+        {
+            return courseDAL.AddStudentCourse(course);
+        }
     }
 }

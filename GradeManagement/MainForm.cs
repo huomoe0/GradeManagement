@@ -58,5 +58,11 @@ namespace GradeManagement
             AddGrade addGrade = new AddGrade();
             addGrade.Show();
         }
+
+        private void TJKCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCourse addCourse = new AddCourse();
+            addCourse.Show();
+        }
     }
 }
